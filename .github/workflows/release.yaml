@@ -49,9 +49,9 @@ jobs:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
       - name: Build, tag, and push the image to Google GAR
-      id: build-image
-      run: |
-        echo "Build a docker container and push it to GAR"
-        docker build -t ${{ env.GAR_REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} .
-        echo "Pushing image to GAR..."
-        docker push ${{ env.GAR_REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+        id: build-image
+        run: |
+          echo "Build a docker container and push it to GAR"
+          docker build -t ${{ env.GAR_REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} .
+          echo "Pushing image to GAR..."
+          docker push ${{ env.GAR_REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
